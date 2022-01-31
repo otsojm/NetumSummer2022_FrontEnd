@@ -2,6 +2,8 @@
 
 This is the Front-End side for the Netum Summer job 2022 Pre-Assigment.
 
+[Back-End side](https://github.com/otsojm/NetumSummer2022_BackEnd)
+
 - ReactJS and TypeScript.
 
     - Add, remove or edit a person.
@@ -9,5 +11,4 @@ This is the Front-End side for the Netum Summer job 2022 Pre-Assigment.
     - Sortable and filterable table.
 
 - Hosted on AWS Amplify.
-
-- [Back-End side](https://github.com/otsojm/NetumSummer2022_BackEnd)
+- PostgreSQL Database.
