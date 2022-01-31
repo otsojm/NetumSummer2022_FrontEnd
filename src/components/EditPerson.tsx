@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -34,7 +34,7 @@ export default function EditPerson(props: { person: { person_id: any; first_name
 
     const editPerson = (value: any) => {
 
-        fetch('http://localhost:5000/persons/' + value.person_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(value) })
+        fetch('https://json.netumsummer.awsproject.link/persons/' + value.person_id, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(value) })
             .then(response => fetchData())
             .catch(error => console.error(error))
     }

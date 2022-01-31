@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ReactTable from 'react-table-6';
-import Button from '@mui/material/Button'
 
 import Person from './Person';
 import AddPerson from './AddPerson'
 import EditPerson from './EditPerson'
+import DeletePerson from './DeletePerson'
 
 import '../css/App.css';
 import 'react-table-6/react-table.css';
@@ -40,7 +40,7 @@ export default function Table() {
             filterable: false,
             sortable: false,
             maxWidth: 100,
-            Cell: (row: { original: { person_id: string; }; }) => (<Button variant="contained" color="error" onClick={() => deletePerson("http://localhost:5000/persons/" + row.original.person_id)}>Delete</Button>)
+            Cell: (row: { original: any; }) => (<DeletePerson person_id={row.original} fetchData={fetchData}/>)
         },
         {
             filterable: false,
@@ -52,7 +52,7 @@ export default function Table() {
 
     async function fetchData() {
 
-        const response = await fetch('http://localhost:5000/persons/');
+        const response = await fetch('https://json.netumsummer.awsproject.link/persons/');
         const data = await response.json();
 
         data.forEach((obj: { person_id: number; first_name: string; last_name: string; age: number }) => {
@@ -67,16 +67,6 @@ export default function Table() {
 
         fetchData();
     }, []);
-
-    const deletePerson = (value: any) => {
-
-        if (window.confirm("Do you really want to delete this person?")) {
-
-            fetch(value, { method: 'DELETE' })
-                .then(response => fetchData())
-                .catch(error => console.error(error))
-        }
-    }
 
     return (
         <div className='App'>
