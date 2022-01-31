@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  margin-top: 20vh
+}
+
+.h1 {
+  color: white;
+}
+
+.Table {
+  background-color: white;
+  width: 1000px;
+  margin: auto;
+  border-radius: 20px
+}

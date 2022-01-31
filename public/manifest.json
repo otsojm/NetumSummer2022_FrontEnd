@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Person DB",
+  "name": "Person Database Management",
+  "description": "Tools to manage content of the Person Database.",
   "icons": [
     {
       "src": "favicon.ico",
