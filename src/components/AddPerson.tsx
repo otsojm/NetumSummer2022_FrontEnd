@@ -41,9 +41,15 @@ export default function AddPerson(props: { fetchData: () => void; }) {
 
     const handleSave = () => {
 
-        handleClose();
-        addPerson(person);
-        setPerson({ first_name: '', last_name: '', age: 0 });
+        if (person.first_name === '' || person.last_name === '') {
+
+            window.alert("Please fill the required fields.");
+        } else {
+
+            handleClose();
+            addPerson(person);
+            setPerson({ first_name: '', last_name: '', age: 0 });
+        }
     }
 
     const handleChange = (event: { target: { name: any; value: any; }; }) => {
@@ -59,6 +65,7 @@ export default function AddPerson(props: { fetchData: () => void; }) {
                 <DialogContent>
                     <TextField
                         autoFocus
+                        required
                         margin="dense"
                         id="first_name"
                         name="first_name"
@@ -68,6 +75,7 @@ export default function AddPerson(props: { fetchData: () => void; }) {
                         fullWidth
                     />
                     <TextField
+                        required
                         margin="dense"
                         id="last_name"
                         name="last_name"

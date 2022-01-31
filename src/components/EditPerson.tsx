@@ -41,9 +41,15 @@ export default function EditPerson(props: { person: { person_id: any; first_name
 
     const handleSave = () => {
 
-        handleClose();
-        editPerson(person);
-        setPerson({ person_id: 0, first_name: '', last_name: '', age: 0 });
+        if (person.first_name === '' || person.last_name === '') {
+
+            window.alert("Please fill the required fields.");
+        } else {
+
+            handleClose();
+            editPerson(person);
+            setPerson({ person_id: 0, first_name: '', last_name: '', age: 0 });
+        }
     }
 
     const handleChange = (event: { target: { name: any; value: any; }; }) => {
@@ -58,6 +64,7 @@ export default function EditPerson(props: { person: { person_id: any; first_name
                 <DialogTitle>Edit a person</DialogTitle>
                 <DialogContent>
                     <TextField
+                        required
                         margin="dense"
                         id="person_id"
                         name="person_id"
@@ -68,6 +75,7 @@ export default function EditPerson(props: { person: { person_id: any; first_name
                     />
                     <TextField
                         autoFocus
+                        required
                         margin="dense"
                         id="first_name"
                         name="first_name"
