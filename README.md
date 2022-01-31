@@ -9,3 +9,5 @@ This is the Front-End side for the Netum Summer job 2022 Pre-Assigment.
     - Sortable and filterable table.
 
 - Hosted on AWS Amplify.
+
+- [Back-End side](https://github.com/otsojm/NetumSummer2022_BackEnd)
