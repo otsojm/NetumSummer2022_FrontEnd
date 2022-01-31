@@ -16,7 +16,7 @@ export default function DeletePerson(props: { person_id: any; fetchData: () => a
 
     return (
         <div>
-            <Button variant="contained" color="warning" onClick={deletePerson}>Delete</Button>
+            <Button variant="contained" color="error" onClick={deletePerson}>Delete</Button>
         </div>
     )
 }
