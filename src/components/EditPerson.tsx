@@ -64,7 +64,6 @@ export default function EditPerson(props: { person: { person_id: any; first_name
                 <DialogTitle>Edit a person</DialogTitle>
                 <DialogContent>
                     <TextField
-                        required
                         margin="dense"
                         id="person_id"
                         name="person_id"
@@ -85,6 +84,7 @@ export default function EditPerson(props: { person: { person_id: any; first_name
                         fullWidth
                     />
                     <TextField
+                        required
                         margin="dense"
                         id="last_name"
                         name="last_name"
