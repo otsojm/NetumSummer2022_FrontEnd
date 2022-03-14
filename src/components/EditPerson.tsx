@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import Api from '../services/Api';
 
-export default function EditPerson(props: { person: { person_id: any; first_name: any; last_name: any; age: any; }; insertDataToTable: () => void; }) {
+export default function EditPerson(props: { person: { person_id: number; first_name: string; last_name: string; age: number; }; insertDataToTable: () => void; }) {
 
     const [open, setOpen] = useState(false);
     const [person, setPerson] = useState({ person_id: 0, first_name: '', last_name: '', age: 0 });
