@@ -6,54 +6,37 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function AddPerson(props: { fetchData: () => void; }) {
+import { postData } from '../services/Api';
+
+export default function AddPerson(props: { insertDataToTable: () => void; }) {
 
     const [open, setOpen] = useState(false);
     const [person, setPerson] = useState({ first_name: '', last_name: '', age: 0 });
 
     const handleOpen = () => {
-
         setOpen(true);
     }
 
     const handleClose = () => {
-
         setOpen(false);
     }
 
     const handleCancel = () => {
-
         setOpen(false);
     }
 
-    const fetchData = () => {
-
-        props.fetchData();
-    }
-
-    const addPerson = (value: any) => {
-
-        fetch('https://json.netumsummer.awsproject.link/persons/', { method: 'POST', headers: { 'Content-type': 'application/json' }, body: JSON.stringify(value) })
-            .then(response => response.json())
-            .then(data => fetchData())
-            .catch(error => console.error(error))
-    }
-
-    const handleSave = () => {
-
+    const handleSave = async () => {
         if (person.first_name === '' || person.last_name === '') {
-
             window.alert("Please fill the required fields.");
         } else {
-
             handleClose();
-            addPerson(person);
+            await postData(person);
             setPerson({ first_name: '', last_name: '', age: 0 });
         }
+        props.insertDataToTable();
     }
 
-    const handleChange = (event: { target: { name: any; value: any; }; }) => {
-
+    const handleChange = (event: { target: { name: string; value: string | number; }; }) => {
         setPerson({ ...person, [event.target.name]: event.target.value });
     }
 

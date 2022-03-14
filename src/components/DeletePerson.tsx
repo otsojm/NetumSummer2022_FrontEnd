@@ -1,15 +1,14 @@
 import Button from '@mui/material/Button';
 
-export default function DeletePerson(props: { person_id: any; fetchData: () => any; }) {
+import Api from '../services/Api';
 
-    const deletePerson = () => {
+export default function DeletePerson(props: { person_id: any; insertDataToTable: () => void; }) {
 
+    const deletePerson = async () => {
         if (window.confirm("Do you really want to delete this person?")) {
-
-            fetch('https://json.netumsummer.awsproject.link/persons/' + props.person_id.person_id, { method: 'DELETE' })
-                .then(response => props.fetchData())
-                .catch(error => console.error(error))
+            await Api.deleteData(props.person_id.person_id);
         }
+        props.insertDataToTable();
     }
 
     return (
